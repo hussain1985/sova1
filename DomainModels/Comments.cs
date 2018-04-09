@@ -18,7 +18,7 @@ namespace DomainModels
         public int UserId { get; set; }
 
         
-
+//
 
     }
 }
