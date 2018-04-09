@@ -17,7 +17,7 @@ namespace DomainModels
         public User Users { get; set; }
         public int UserId { get; set; }
 
-        
+        //
 //
 
     }
