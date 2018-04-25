@@ -46,5 +46,16 @@ namespace Test
 
         }
 
+
+        [Fact]
+        public void KeySearchMustReturnSearchResults()
+        {
+
+            var ss = new SearchService();
+            var result = ss.GetSearchResult("what is abs");
+            Assert.Equal(1, result.Count());
+
+        }
+
     }
 }

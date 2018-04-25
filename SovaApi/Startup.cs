@@ -29,6 +29,7 @@ namespace SovaApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
+            services.AddTransient<ISearchService, SearchService>();
       //      services.AddDbContext<SovaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("SovaAppDb")));
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUserServices, UserServices>();

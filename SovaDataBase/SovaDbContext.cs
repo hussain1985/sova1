@@ -31,8 +31,9 @@ namespace SovaDataBase
         public DbSet<User> Users { get; set; }
         public DbSet<Comments> Comments { get; set; }
         public DbSet<Tag> Tag { get; set; }
+        public DbSet<History> History { get; set; }
 
-
+       public DbSet<KeySearch> KeySearch { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,6 +41,8 @@ namespace SovaDataBase
             modelBuilder.Entity<Posttype>().ToTable("posttype");
             modelBuilder.Entity<Posttype>().Property(x => x.Id).HasColumnName("posttypeid");
             modelBuilder.Entity<Posttype>().Property(x => x.Name).HasColumnName("posttype");
+
+            modelBuilder.Entity<History>().ToTable("history");
            
             
 
@@ -69,14 +72,21 @@ namespace SovaDataBase
 
             // modelBuilder.Entity<Tag>().ToTable("tags");
             // modelBuilder.Entity<PostTag>().ToTable("posts_tags");
-           // modelBuilder.Entity<PostTag>().HasKey(x => new { x.post_id, x.tag_id });
+            // modelBuilder.Entity<PostTag>().HasKey(x => new { x.post_id, x.tag_id });
 
             //modelBuilder.Entity<PostTag>()
             //.HasKey(bc => new { bc.post_id, bc.tag_id });
 
 
 
-            
+            // SearchResults
+
+            modelBuilder.Entity<KeySearch>().Property(x => x.Id).HasColumnName("id");
+            modelBuilder.Entity<KeySearch>().Property(x => x.Title).HasColumnName("title");
+            modelBuilder.Entity<KeySearch>().Property(x => x.Rank).HasColumnName("rank");
+
+
+
 
 
         }
